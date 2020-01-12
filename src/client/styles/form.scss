@@ -1,0 +1,25 @@
+form {
+    border-radius: 3px;
+    padding: 40px;
+}
+
+input {
+    padding: 5px 20px;
+    width: 100%;
+    line-height: 16px;
+    margin: 10px 0;
+}
+
+#submit-btn{
+    background: #fff;
+    color: rgb(63, 63, 63);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    width: 80px;
+    border-radius: 25px;
+    border: none;
+    margin: auto;
+    cursor: pointer;
+    font-size: 1em;
+    padding: 0.4em;
+}
+
