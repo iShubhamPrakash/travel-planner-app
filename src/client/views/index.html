@@ -68,5 +68,16 @@
         <footer>
             <a href="https://www.linkedin.com/in/ishubhamprakash/">Made with love by Shubham Prakash</a>
         </footer>
+
+        <script>
+            // Enabling service worker if supported by the browser
+            if ('serviceWorker' in navigator) {
+                window.addEventListener('load', () => {
+                    navigator.serviceWorker.register('/service-worker.js').then(registration => console.log('SW registered: ', registration));
+                });
+            }else{
+                console.log("Service Working not supported");
+            }
+        </script>
     </body>
 </html>
