@@ -47,6 +47,18 @@ section {
   }
 }
 
+h1 {
+  color: #2866ed;
+  padding: 0.8em 0.2em;
+}
+
+h4 {
+  color: #364561;
+  line-height: 1.6;
+  padding: 0.2em 1.8em;
+  font-weight: normal;
+}
+
 .card {
     background: #fff;
     padding: 1em;
@@ -63,3 +75,28 @@ section {
 .card-hover:hover {
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
   }
+
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #2866ed;
+  border-bottom: 16px solid #2866ed;
+  width: 100px;
+  height: 100px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.hidden{
+  display: none;
+}

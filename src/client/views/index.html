@@ -2,26 +2,46 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Evaluate with Natural Language Processing</title>
+        <meta 
+            name="description" 
+            content=" Extract what matters from documents, web pages, blogs, Tweets, and reviews, or any textual content. 
+            Understand what or who a document mentions, what topics it deals with, and what the sentiment of a piece of text is."
+        >
+        <meta name="keywords" content="NLP,Natural Language Processing, Shubham Prakash">
+        <meta name="author" content="Shubham Prakash">
+        <title>Evaluate with Natural Language Processing- Shubham Prakash</title>
     </head>
 
     <body>
 
         <header>
             <div class="text">
-                Evaluate with Natural Language Processing
+                Evaluate text with Natural Language Processing
             </div>
         </header>
 
         <main>
             <section class="card card-hover">
+                <div class="text-center">
+                    <h1>Text Analytics Made Easy</h1>
+                    <h4>
+                        Extract what matters from documents, web pages, blogs, Tweets, and reviews, or any textual content. 
+                        Understand what or who a document mentions, what topics it deals with, and what the sentiment of a piece of text is.
+                    </h4>
+                </div>
+
                 <form class="text-center">
                     <input id="url" type="text" name="url" value="" placeholder="URL of the article">
-                    <button id="submit-btn">Evaluate</button>
+                    <div>
+                        <button id="submit-btn">Evaluate </button>
+                    </div>
                 </form>
             <section>
 
-            <section>
+                <section id="loader-box" class="text-center hidden">
+                    <div class="loader text-center"></div>
+                </section>
+            <section id="result-box" class="hidden"> 
                 <div class="text-center"><strong>Results:</strong></div>
                 <div id="results">
                     <div>
