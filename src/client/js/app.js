@@ -40,3 +40,5 @@ let init = (event) => {
 
 
 window.addEventListener('DOMContentLoaded', init);
+
+export { init };
