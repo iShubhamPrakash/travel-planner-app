@@ -1,4 +1,4 @@
-const apiUrl = 'http://localhost:8000/evaluate';
+import { apiUrl } from './config';
 
 const submitToEvaluate = async (url) => {
 
