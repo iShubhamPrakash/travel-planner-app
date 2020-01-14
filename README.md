@@ -21,6 +21,26 @@ The project will open inside your browser.
 
 5. Add the article link and click Evaluate Button to see the result.
 
+`
+**IMPORTANT NOTE**
+
+This project uses AYLIEN TEXT ANALYSIS API. To run this project locally, you'll need API keys which you can get from [here](https://developer.aylien.com/signup)
+
+To avoid the misuse of my API keys I have not provided my own API keys. You'll have to signup and get your own API key
+and create a .env file as follow-
+
+`
+
+A file ".env" must be present at the root of the project containing following environment variables-
+
+```
+
+API_ID = your_id
+API_KEY = your_key
+PORT = 8000
+
+```
+
 ## Live Demo-
 
 Click this [Link](https://evaluate-text-with-nlp.herokuapp.com/) 
