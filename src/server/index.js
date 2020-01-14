@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 var aylien = require("aylien_textapi");
 
-const config = require('./config');
+const port = process.env.PORT || 8000;
 
 dotenv.config();
 
@@ -48,7 +48,7 @@ app.get('/test', function (req, res) {
 
 
 // designates what port the app will listen to for incoming requests
-app.listen(config.port, function () {
-    console.log(`App listening on port ${config.port}!`)
+app.listen(port, function () {
+    console.log(`App listening on port ${port}!`)
 })
 

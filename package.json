@@ -8,8 +8,8 @@
     "build-prod": "webpack --config webpack.prod.js",
     "build-dev": "webpack-dev-server  --config webpack.dev.js --open"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["NLP","Evaluate text"],
+  "author": "Shubham Prakash",
   "license": "ISC",
   "description": "",
   "dependencies": {
@@ -35,5 +35,9 @@
     "style-loader": "^1.1.2",
     "webpack-dev-server": "^3.7.2",
     "workbox-webpack-plugin": "^4.3.1"
+  },
+  "engines": {
+    "node": "10.15.3",
+    "npm": "6.13.4"
   }
 }
