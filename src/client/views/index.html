@@ -1,83 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta 
-            name="description" 
-            content="Extract what matters from documents, web pages, blogs, Tweets, and reviews, or any textual content. 
-            Understand what or who a document mentions, what topics it deals with, and what the sentiment of a piece of text is."
-        >
-        <meta name="keywords" content="NLP,Natural Language Processing, Shubham Prakash">
-        <meta name="author" content="Shubham Prakash">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Evaluate with Natural Language Processing- Shubham Prakash</title>
-    </head>
 
-    <body>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="Plan your journey.">
+    <meta name="keywords" content="travel app, journey, Shubham Prakash">
+    <meta name="author" content="Shubham Prakash">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel App- Shubham Prakash</title>
+</head>
 
-        <header>
-            <div class="text">
-                Evaluate text with Natural Language Processing
-            </div>
-        </header>
+<body>
 
-        <main>
-            <section class="card card-hover">
-                <div class="text-center">
-                    <h1>Text Analytics Made Easy</h1>
-                    <h4>
-                        Extract what matters from documents, web pages, blogs, Tweets, and reviews, or any textual content. 
-                        Understand what or who a document mentions, what topics it deals with, and what the sentiment of a piece of text is.
-                    </h4>
+    <header>
+        <div class="text">
+            Travel App
+        </div>
+    </header>
+
+    <main>
+        <section class="card card-hover">
+            <form class="text-center">
+                <input id="place" type="text" name="place" value="" placeholder="Name of the Place">
+                <div>
+                    <button id="submit-btn">Add</button>
                 </div>
+            </form>
 
-                <form class="text-center">
-                    <input id="url" type="text" name="url" value="" placeholder="URL of the article">
-                    <div>
-                        <button id="submit-btn">Evaluate </button>
-                    </div>
-                </form>
-            <section>
-
-                <section id="loader-box" class="text-center hidden">
-                    <div class="loader text-center"></div>
-                </section>
-            <section id="result-box" class="hidden"> 
-                <div class="text-center"><strong>Results:</strong></div>
+            <section id="loader-box" class="text-center hidden">
+                <div class="loader text-center"></div>
+            </section>
+            <section id="result-box" class="hidden-">
+                <div class="text-center"><strong>Saved trips</strong></div>
                 <div id="results">
-                    <div>
-                        <span>Polarity: <p id="polarity"></p></span>
-                    </div>
-                    <div>
-                        <span>Subjectivity: <p id="subjectivity"></p></span>
-                    </div>
-                    <div>
-                        <span>Polarity Confidence: <p id="polarity_confidence"></p></span>
-                    </div>
-                    <div>
-                        <span>Subjectivity Confidence: <p id="subjectivity_confidence"></p></span>
-                    </div>
-                    
-                    <div>
-                        <span>Article text: <p id="article"></p></span>
+                    <div class="trip">
+
+                        <div class="photo">
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Atque neque
+                            libero molestiae quod voluptas, alias ipsa ad dolorem soluta corrupti ratione magni
+                            quasi eum tenetur enim commodi ullam aperiam optio?
+                        </div>
+
+                        <div class="note">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem inventore
+                            libero accusantium asperiores eum laudantium, mollitia ad nobis amet cum.
+                        </div>
+
+                        <div class="info">
+                            <p class="name"><span>My trip to:</span>Paris, France</p>
+                            <p class="time"><span>Departing:</span><time datetime="2020-07-07">07-07-2020</time></p>
+                        </div>
+
+                        <div class="weather">
+                            <p class="title">Typical weather for then is:</p>
+                            <p class="temp">
+                                <span>High: </span><span class="high">46</span>
+                                <span>Low: </span><span class="low">35</span>
+                            </p>
+                            <p class="weather_text">Mostly cloudy throughout the day</p>
+                        </div>
                     </div>
                 </div>
             </section>
-        </main>
+    </main>
 
-        <footer>
-            <a href="https://www.linkedin.com/in/ishubhamprakash/">Made with love by Shubham Prakash</a>
-        </footer>
+    <footer>
+        <a href="https://www.linkedin.com/in/ishubhamprakash/">Made with love by Shubham Prakash</a>
+    </footer>
 
-        <script>
-            // Enabling service worker if supported by the browser
-            if ('serviceWorker' in navigator) {
-                window.addEventListener('load', () => {
-                    navigator.serviceWorker.register('/service-worker.js').then(registration => console.log('SW registered: ', registration));
+    <script>
+        // Enabling service worker if supported by the browser
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js').then(registration =>
                 });
-            }else{
-                console.log("Service Working not supported");
-            }
-        </script>
-    </body>
+        } else {
+
+        }
+    </script>
+</body>
+
 </html>

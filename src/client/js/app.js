@@ -1,6 +1,6 @@
 import { submitToEvaluate } from './api';
 import { updateUI } from './view';
-import { validateURL } from './util';
+import { validatePlace } from './util';
 
 
 let init = (event) => {
@@ -12,18 +12,18 @@ let init = (event) => {
 
   submitBtn.addEventListener('click', async e => {
     e.preventDefault();
-    const url = document.querySelector('#url').value;
-    
-    if (!validateURL(url)) {
-      alert("Please enter a valid URL");
+    const place = document.querySelector('#place').value;
+
+    if (!validatePlace(place)) {
+      alert("Please enter a Place Name");
       return ;
     }
 
     try {
-      //Show loading animation      
+      //Show loading animation
       loadingBox.classList.remove('hidden');
 
-      let data = await submitToEvaluate(url);
+      let data = await submitToEvaluate(place);
       await updateUI(data);
       //Hide loader and show result
       loadingBox.classList.add('hidden');
@@ -33,7 +33,7 @@ let init = (event) => {
       document.querySelector('#results').innerText = "Something gone wrong.. please try again...";
       console.log(e);
     }
-  
+
   })
 
 }

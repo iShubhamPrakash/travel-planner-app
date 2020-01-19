@@ -2,22 +2,17 @@
 
 ### Your project must:
 
-- [ ] Be set up with Webpack, Express, Node, and Sass, and Service Workers
+# GeoNames API endpoint-
+  http://api.geonames.org/searchJSON?q=[place]&maxRows=[int]&username=[username]
 
-- [x] Have separate dev and prod configurations for Webpack
+  e.g-
+  http://api.geonames.org/searchJSON?q=garhara&maxRows=1&username=shubhamprakash
 
-- [x] Have the developer environment set up with the Webpack dev server
+# Dark API endpoint-
+  https://api.darksky.net/forecast/[key]/[latitude],[longitude]
 
-- [x] Have a minimum of one form field
+# Pixabay API endpoint-
+  https://pixabay.com/api/
 
-- [x] Make one request to the Aylien API
-
-- [x] Use Sass for styling
-
-- [x] Minify js and styles in the production environment
-
-- [x] Response from the API must be added to the view for a user to see 
-
-- [ ] Be able to show content offline
-
-All of these requirements are explained throughout the course. Specifics on setting up the Aylien API are found in the README file of this repo.
+  e.g-
+  https://pixabay.com/api/?key=14956666-5f488f59d788ad507536dbbad&q=yellow+flowers&image_type=photo

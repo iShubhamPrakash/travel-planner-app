@@ -1,17 +1,15 @@
-const { validateURL } = require('../client/js/util');
+const { validatePlace } = require('../client/js/util');
 
-describe("validateURL() Function", () => {
-  test("it should return true for a correct url passed as argument", () => {
+describe("validatePlace() Function", () => {
+  test("it should return true for a correct string passed as argument", () => {
     // actual test
-    const url = "https://www.google.com";
-    const result = validateURL(url);
+    const result = validatePlace("India");
     expect(result).toBe(true);
   });
 
-  test("it should return false for a wrong url passed as argument", () => {
+  test("it should return false no string is passed as argument", () => {
     // actual test
-    const url = "httpswwwgooglecom";
-    const result = validateURL(url);
+    const result = validatePlace("");
     expect(result).toBe(false);
   });
 });
