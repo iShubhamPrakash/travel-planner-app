@@ -22,10 +22,7 @@ section {
 }
 
 #results{
-  background:#f2f2f2;
-  background:pink;
-
-  padding: 0.8em;
+  background:rgb(255, 232, 232);
   margin-top: 1em;
   border-radius: 8px;
 
@@ -67,9 +64,6 @@ h4 {
     transition: all 0.3s cubic-bezier(.25,.8,.25,1);
   }
 
-.card-hover:hover {
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-  }
 
 .loader {
   border: 16px solid #f3f3f3;
@@ -100,31 +94,81 @@ h4 {
 //Styles for trip card-
 
 .trip{
+  padding: 1em;
+  border-radius: 8px;
+  position: relative;
   display: grid;
-
   grid-template-columns: 0.8fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: auto;
   grid-template-areas:
-          "photo  info
-           note   weather";
+          "photo  info"
+           "note   info";
+
+
+  @media (max-width: 768px) {
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    grid-template-areas:
+            "photo"
+            "info"
+            "weather"
+             "note";
+  }
+
+  &:nth-child(2n){
+    background: rgb(231, 231, 231);
+  }
+
+  &:hover {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  }
 }
 
 .photo{
   grid-area: photo;
-  background: red;
+  width: 100%;
+
+  img{
+    width: 100%;
+    height: auto;
+  }
 }
 
 .note{
   grid-area: note;
-  background: mediumaquamarine;
+  padding: 0.5em 0;
+
+  p{
+    padding: 0.5em;
+    border: 1px solid gray;
+  }
 }
 
 .info{
   grid-area: info;
-  background: mediumorchid;
+  padding: 0.5em 1em;
+
+  p{
+    margin: 0.5em 0;
+    font-size: 1.2em;
+  }
 }
 
-.weather{
-  grid-area: weather;
-  background: rgb(10, 82, 28);
+.delete-btn{
+  background: #fff;
+  // padding: 1em;
+  font-weight: bold;
+  height: 30px;
+  width: 30px;
+  border-radius: 100%;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: 1.4px rgb(231, 231, 231) solid;
+
+  &:hover{
+    color: red;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  }
 }

@@ -1,25 +1,71 @@
-form {
-    border-radius: 3px;
-    padding: 40px;
+.form {
+    padding: 6px;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 3fr 1fr;
+
+    grid-template-areas:
+            "place-date note"
+            "place-date  note"
+            "submit submit";
+
+    grid-gap: 10px;
+
+
+    @media (max-width:768px){
+        grid-template-areas:
+            "place-date"
+            "note"
+            "submit";
+        grid-template-columns: auto;
+        grid-template-rows: auto;
+        grid-gap: 10px;
+
+    }
 }
 
-input {
-    padding: 5px 20px;
+input{
+    padding: 0.3em;
+    font-size: 1.2em;
+    margin-bottom: 0.5em;
     width: 100%;
-    line-height: 16px;
-    margin: 10px 0;
+}
+
+.placeInput{
+    grid-area: place-date;
+
+}
+
+.dateInput{
+    grid-area: date;
+}
+
+.noteInput{
+    grid-area: note;
+    textarea{
+        width: 100%;
+        padding: 0.3em;
+        font-size: 1.2em;
+    }
+
+}
+
+.submitInput{
+    grid-area: submit;
+    button{
+        width: 100px;
+        margin-left: auto;
+    }
 }
 
 #submit-btn{
     background: #2866ed;
     color: #fff;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-    width: 80px;
+    width: 120px;
     border-radius: 25px;
     border: none;
-    margin: auto;
     cursor: pointer;
     font-size: 1em;
     padding: 0.4em;
 }
-

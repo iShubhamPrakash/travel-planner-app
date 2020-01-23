@@ -20,12 +20,43 @@
 
     <main>
         <section class="card card-hover">
-            <form class="text-center">
-                <input id="place" type="text" name="place" value="" placeholder="Name of the Place">
-                <div>
-                    <button id="submit-btn">Add</button>
+            <section class="form">
+                <div class="placeInput">
+                    <strong>Place:</strong>
+                    <input
+                        id="place"
+                        type="text"
+                        name="place"
+                        value=""
+                        placeholder="Name of the Place"
+                    />
+                    <br/>
+                    <br/>
+                    <strong>Trip date:</strong>
+
+                    <input
+                        id="date"
+                        type="date"
+                        name="date"
+                    />
                 </div>
-            </form>
+
+                <div class="noteInput">
+                    <strong>Add Note:</strong>
+
+                    <textarea
+                        id="note"
+                        value=""
+                        placeholder="Note"
+                        rows="5"
+                    >
+                    </textarea>
+                </div>
+
+                <div class="submitInput">
+                    <button id="submit-btn">Add Trip</button>
+                </div>
+            </section>
 
             <section id="loader-box" class="text-center hidden">
                 <div class="loader text-center"></div>
@@ -33,33 +64,192 @@
             <section id="result-box" class="hidden-">
                 <div class="text-center"><strong>Saved trips</strong></div>
                 <div id="results">
-                    <div class="trip">
 
+                    <div class="trip">
+                        <button class="delete-btn" title="Delete this trip">X</button>
                         <div class="photo">
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Atque neque
-                            libero molestiae quod voluptas, alias ipsa ad dolorem soluta corrupti ratione magni
-                            quasi eum tenetur enim commodi ullam aperiam optio?
+                            <img src="https://pixabay.com/get/54e4d1434a54aa14f6da8c7dda79367a1c3ad8e355576c48702872d3954ec250bc_1280.jpg"/>
                         </div>
 
                         <div class="note">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem inventore
-                            libero accusantium asperiores eum laudantium, mollitia ad nobis amet cum.
+                            <strong>Note:</strong>
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Atque neque libero molestiae quod voluptas, alias ipsa ad dolorem soluta corrupti ratione magni quasi eum tenetur enim commodi ullam aperiam optio?
+                            </p>
                         </div>
 
                         <div class="info">
-                            <p class="name"><span>My trip to:</span>Paris, France</p>
-                            <p class="time"><span>Departing:</span><time datetime="2020-07-07">07-07-2020</time></p>
-                        </div>
-
-                        <div class="weather">
-                            <p class="title">Typical weather for then is:</p>
-                            <p class="temp">
-                                <span>High: </span><span class="high">46</span>
-                                <span>Low: </span><span class="low">35</span>
-                            </p>
+                            <strong>Destination:</strong>
+                            <p class="name">Paris, France</p>
+                            <br/>
+                            <br/>
+                            <strong>Departing:</strong>
+                            <p class="time"><time datetime="2020-07-07">07-07-2020</time></p>
+                            <br/>
+                            <br/>
+                            <strong>Typical weather for then is:</strong>
+                            <br/>
+                            <br/>
+                            <strong>High: </strong>
+                            <span class="high">46</span>
+                            <br/>
+                            <br/>
+                            <strong>Low: </strong>
+                            <span class="low">35</span>
+                            <br/>
+                            <br/>
                             <p class="weather_text">Mostly cloudy throughout the day</p>
                         </div>
                     </div>
+
+
+                    <div class="trip">
+                        <button class="delete-btn" title="Delete this trip">X</button>
+                        <div class="photo">
+                            <img src="https://pixabay.com/get/54e4d1434a54aa14f6da8c7dda79367a1c3ad8e355576c48702872d3954ec250bc_1280.jpg"/>
+                        </div>
+
+                        <div class="note">
+                            <strong>Note:</strong>
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Atque neque libero molestiae quod voluptas, alias ipsa ad dolorem soluta corrupti ratione magni quasi eum tenetur enim commodi ullam aperiam optio?
+                            </p>
+                        </div>
+
+                        <div class="info">
+                            <strong>Destination:</strong>
+                            <p class="name">Paris, France</p>
+                            <br/>
+                            <br/>
+                            <strong>Departing:</strong>
+                            <p class="time"><time datetime="2020-07-07">07-07-2020</time></p>
+                            <br/>
+                            <br/>
+                            <strong>Typical weather for then is:</strong>
+                            <br/>
+                            <br/>
+                            <strong>High: </strong>
+                            <span class="high">46</span>
+                            <br/>
+                            <br/>
+                            <strong>Low: </strong>
+                            <span class="low">35</span>
+                            <br/>
+                            <br/>
+                            <p class="weather_text">Mostly cloudy throughout the day</p>
+                        </div>
+                    </div>
+
+
+                    <div class="trip">
+                        <button class="delete-btn" title="Delete this trip">X</button>
+                        <div class="photo">
+                            <img src="https://pixabay.com/get/54e4d1434a54aa14f6da8c7dda79367a1c3ad8e355576c48702872d3954ec250bc_1280.jpg"/>
+                        </div>
+
+                        <div class="note">
+                            <strong>Note:</strong>
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Atque neque libero molestiae quod voluptas, alias ipsa ad dolorem soluta corrupti ratione magni quasi eum tenetur enim commodi ullam aperiam optio?
+                            </p>
+                        </div>
+
+                        <div class="info">
+                            <strong>Destination:</strong>
+                            <p class="name">Paris, France</p>
+                            <br/>
+                            <br/>
+                            <strong>Departing:</strong>
+                            <p class="time"><time datetime="2020-07-07">07-07-2020</time></p>
+                            <br/>
+                            <br/>
+                            <strong>Typical weather for then is:</strong>
+                            <br/>
+                            <br/>
+                            <strong>High: </strong>
+                            <span class="high">46</span>
+                            <br/>
+                            <br/>
+                            <strong>Low: </strong>
+                            <span class="low">35</span>
+                            <br/>
+                            <br/>
+                            <p class="weather_text">Mostly cloudy throughout the day</p>
+                        </div>
+                    </div>
+
+
+                    <div class="trip">
+                        <button class="delete-btn" title="Delete this trip">X</button>
+                        <div class="photo">
+                            <img src="https://pixabay.com/get/54e4d1434a54aa14f6da8c7dda79367a1c3ad8e355576c48702872d3954ec250bc_1280.jpg"/>
+                        </div>
+
+                        <div class="note">
+                            <strong>Note:</strong>
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Atque neque libero molestiae quod voluptas, alias ipsa ad dolorem soluta corrupti ratione magni quasi eum tenetur enim commodi ullam aperiam optio?
+                            </p>
+                        </div>
+
+                        <div class="info">
+                            <strong>Destination:</strong>
+                            <p class="name">Paris, France</p>
+                            <br/>
+                            <br/>
+                            <strong>Departing:</strong>
+                            <p class="time"><time datetime="2020-07-07">07-07-2020</time></p>
+                            <br/>
+                            <br/>
+                            <strong>Typical weather for then is:</strong>
+                            <br/>
+                            <br/>
+                            <strong>High: </strong>
+                            <span class="high">46</span>
+                            <br/>
+                            <br/>
+                            <strong>Low: </strong>
+                            <span class="low">35</span>
+                            <br/>
+                            <br/>
+                            <p class="weather_text">Mostly cloudy throughout the day</p>
+                        </div>
+                    </div>
+
+
+                    <div class="trip">
+                        <button class="delete-btn" title="Delete this trip">X</button>
+                        <div class="photo">
+                            <img src="https://pixabay.com/get/54e4d1434a54aa14f6da8c7dda79367a1c3ad8e355576c48702872d3954ec250bc_1280.jpg"/>
+                        </div>
+
+                        <div class="note">
+                            <strong>Note:</strong>
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Atque neque libero molestiae quod voluptas, alias ipsa ad dolorem soluta corrupti ratione magni quasi eum tenetur enim commodi ullam aperiam optio?
+                            </p>
+                        </div>
+
+                        <div class="info">
+                            <strong>Destination:</strong>
+                            <p class="name">Paris, France</p>
+                            <br/>
+                            <br/>
+                            <strong>Departing:</strong>
+                            <p class="time"><time datetime="2020-07-07">07-07-2020</time></p>
+                            <br/>
+                            <br/>
+                            <strong>Typical weather for then is:</strong>
+                            <br/>
+                            <br/>
+                            <strong>High: </strong>
+                            <span class="high">46</span>
+                            <br/>
+                            <br/>
+                            <strong>Low: </strong>
+                            <span class="low">35</span>
+                            <br/>
+                            <br/>
+                            <p class="weather_text">Mostly cloudy throughout the day</p>
+                        </div>
+                    </div>
+
+
                 </div>
             </section>
     </main>
@@ -68,16 +258,14 @@
         <a href="https://www.linkedin.com/in/ishubhamprakash/">Made with love by Shubham Prakash</a>
     </footer>
 
-    <script>
-        // Enabling service worker if supported by the browser
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/service-worker.js').then(registration =>
-                });
-        } else {
-
-        }
-    </script>
+<script>
+    // Enabling service worker if supported by the browser
+    if ('serviceWorker' in navigator){
+        window.addEventListener('load', () =>{
+            navigator.serviceWorker.register('/service-worker.js')
+            .then(registration =>console.log("Service worker registered",registration))
+        })
+    }
+</script>
 </body>
-
 </html>

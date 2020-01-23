@@ -11,9 +11,9 @@ module.exports = {
 
     // output:{
     //     libraryTarget: 'var',
-    //     library: 'Client',    
+    //     library: 'Client',
     // },
-    
+
     devtool: 'source-map',
     stats: 'verbose',
     module: {
@@ -40,7 +40,7 @@ module.exports = {
             filename: "[name].css",
             chunkFilename: "[id].css"
         }),
-        
+
         new CleanWebpackPlugin({
             // Simulate the removal of files
             dry: true,
@@ -50,10 +50,10 @@ module.exports = {
             cleanStaleWebpackAssets: true,
             protectWebpackAssets: false
         }),
-        
-        new WorkboxPlugin.GenerateSW({
-            clientsClaim: true,
-            skipWaiting: true
-        }), 
+
+        // new WorkboxPlugin.GenerateSW({
+        //     clientsClaim: true,
+        //     skipWaiting: true
+        // }),
     ]
 }

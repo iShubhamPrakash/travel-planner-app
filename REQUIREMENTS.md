@@ -9,10 +9,10 @@
   http://api.geonames.org/searchJSON?q=garhara&maxRows=1&username=shubhamprakash
 
 # Dark API endpoint-
-  https://api.darksky.net/forecast/[key]/[latitude],[longitude]
+  https://api.darksky.net/forecast/[key]/[latitude],[longitude],[time]
 
 # Pixabay API endpoint-
-  https://pixabay.com/api/
+  https://pixabay.com/api/?key=[pixabaykey]&q=[image]`
 
   e.g-
   https://pixabay.com/api/?key=14956666-5f488f59d788ad507536dbbad&q=yellow+flowers&image_type=photo

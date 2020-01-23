@@ -43,10 +43,10 @@ module.exports = {
             cleanStaleWebpackAssets: true,
             protectWebpackAssets: false
         }),
-        
-        new WorkboxPlugin.GenerateSW({
-            clientsClaim: true,
-            skipWaiting: true
-        }), 
+
+        // new WorkboxPlugin.GenerateSW({
+        //     clientsClaim: true,
+        //     skipWaiting: true
+        // }),
     ]
 }
