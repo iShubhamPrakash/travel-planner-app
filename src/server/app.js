@@ -11,6 +11,16 @@ let app = express()
 
 let travelData= [];
 
+let sampledata={
+    name:"Paris, 1",
+    date:"07-07-2020",
+    image:"https://pixabay.com/get/54e4d1434a54aa14f6da8c7dda79367a1c3ad8e355576c4870277bd7944cc651bf_1280.jpg",
+    note:"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Atque neque libero molestiae quod voluptas, alias ipsa ad dolorem soluta corrupti ratione magni quasi eum tenetur enim commodi ullam aperiam optio?",
+    high: "46",
+    low:"35",
+    weather:"Mostly cloudy throughout the day"
+};
+
 /* Middleware*/
 //Here we are configuring express to use body-parser as middle-ware.
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -23,6 +33,24 @@ app.use(express.static('dist'))
 
 app.get('/', function (req, res) {
     res.sendFile('dist/index.html')
+})
+
+// GET route to send the travel data
+app.get('/trip', (req,res)=>{
+    res.send(travelData);
+})
+
+//POST route to update travel data
+app.post('/trip', (req,res)=>{
+    const {place,date,note}= req.body;
+    travelData=[{...sampledata,name:place,date:date,note:note},...travelData];
+    res.send({success:true});
+})
+
+//POST route to delete an entry from the travel data
+app.delete('/trip', (req,res)=>{
+    travelData=travelData.filter((data,index)=>index!=req.body.id);
+    res.send({success:true, detetedId:req.body.id});
 })
 
 app.get('/test', function (req, res) {

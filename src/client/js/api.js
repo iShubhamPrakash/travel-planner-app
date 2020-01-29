@@ -1,6 +1,7 @@
 import { apiUrl } from './config';
+import {updateUI} from './view'
 
-const submitToEvaluate = async (url) => {
+const submitToServer = async ({place,date,note}) => {
 
   try {
     let response = await fetch(apiUrl,
@@ -10,19 +11,36 @@ const submitToEvaluate = async (url) => {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({url:url})
+        body: JSON.stringify({place,date,note})
       }
     );
 
-    let data = await response.json();
-
-    return data;
-    
   } catch (e) {
+    console.log(e);
+  }
+}
 
-    return e;
+const deleteTrip = async (index)=>{
+  let dlt= confirm(`Delete this trip?`);
+
+  if(dlt===false) return;
+
+  try {
+    await fetch(apiUrl,
+      {
+        method: 'DELETE',
+        mode: 'cors',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({id:index})
+      }
+    );
+    await updateUI();
+  } catch (e) {
+    console.log(e);
   }
 }
 
 
-export { submitToEvaluate };
+export { submitToServer,deleteTrip };

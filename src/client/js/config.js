@@ -1,5 +1,5 @@
 const production = false;
 
-const apiUrl = production ? 'https://evaluate-text-with-nlp.herokuapp.com/evaluate' : 'http://localhost:8000/evaluate';
+const apiUrl = production ? 'https://travel-app.herokuapp.com/addTrip' : 'http://localhost:8000/trip';
 
 export {apiUrl}
