@@ -41,9 +41,11 @@ app.get('/trip', (req,res)=>{
 })
 
 //POST route to update travel data
-app.post('/trip', (req,res)=>{
+app.post('/trip', async (req,res)=>{
     const {place,date,note}= req.body;
-    travelData=[{...sampledata,name:place,date:date,note:note},...travelData];
+
+    const image = await getImageFromPixabay(process.env.PIXABAY_API_KEY,place);
+    travelData=[{...sampledata,name:place,date:date,note:note,image:image},...travelData];
     res.send({success:true});
 })
 
@@ -64,7 +66,7 @@ const getImageFromPixabay= async (key,image)=>{
         if(res.data.totalHits !== 0)
             return res.data.hits[0].largeImageURL;
         else
-            return {error: 'no results'};
+            return "https://i.ibb.co/PwKhD7c/not-found-2384304-1280.jpg";
     });
 }
 
