@@ -50,9 +50,9 @@ app.post('/trip', async (req,res)=>{
                     date:date,
                     note:note,
                     image:image,
-                    high:weatherInfo.high,
-                    low:weatherInfo.low,
-                    weather:weatherInfo.weather
+                    high:weatherInfo.high || "No data available",
+                    low:weatherInfo.low || "No data available",
+                    weather:weatherInfo.weather|| "No data available"
                 },
                 ...travelData];
             res.send({success:true});
