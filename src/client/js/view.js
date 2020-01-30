@@ -3,7 +3,7 @@ import { deleteTrip } from './api';
 
 const updateUI = async () => {
   try{
-    let response = await fetch(apiUrl);
+    let response = await fetch(apiUrl+"/trip");
     let data = await response.json();
 
     document.querySelector('#results').innerHTML="";
@@ -49,7 +49,7 @@ const updateUI = async () => {
 
     await document.querySelectorAll('.delete-btn').forEach((btn,index)=>{
       btn.addEventListener('click',e=>{
-        deleteTrip(index);
+        deleteTrip(apiUrl,index);
       });
     });
 

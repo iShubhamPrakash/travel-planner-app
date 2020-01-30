@@ -1,13 +1,13 @@
-const { submitToEvaluate } = require('../client/js/api');
+const { submitToServer } = require('../client/js/api');
 
-describe("submitToEvaluate() function", () => {
-  
+describe("submitToServer() function", () => {
+
   test("should be defined", async () => {
     // actual test
-    expect(submitToEvaluate).toBeDefined();
+    expect(submitToServer).toBeDefined();
   });
 
   test('should be a function', async () => {
-    expect(typeof submitToEvaluate).toBe("function");
+    expect(typeof submitToServer).toBe("function");
   });
 });

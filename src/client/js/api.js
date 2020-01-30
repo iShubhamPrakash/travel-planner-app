@@ -1,10 +1,9 @@
-import { apiUrl } from './config';
 import {updateUI} from './view'
 
-const submitToServer = async ({place,date,note}) => {
+const submitToServer = async (apiUrl,{place,date,note}) => {
 
   try {
-    let response = await fetch(apiUrl,
+    let response = await fetch(apiUrl+"/trip",
       {
         method: 'POST',
         mode: 'cors',
@@ -20,13 +19,13 @@ const submitToServer = async ({place,date,note}) => {
   }
 }
 
-const deleteTrip = async (index)=>{
+const deleteTrip = async (apiUrl,index)=>{
   let dlt= confirm(`Delete this trip?`);
 
   if(dlt===false) return;
 
   try {
-    await fetch(apiUrl,
+    await fetch(apiUrl+"/trip",
       {
         method: 'DELETE',
         mode: 'cors',

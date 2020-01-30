@@ -1,5 +1,5 @@
 const production = false;
 
-const apiUrl = production ? 'https://travel-app.herokuapp.com/addTrip' : 'http://localhost:8000/trip';
+const apiUrl = production ? 'https://trip-manager-app.herokuapp.com' : 'http://localhost:8000';
 
 export {apiUrl}

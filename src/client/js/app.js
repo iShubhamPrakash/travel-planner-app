@@ -1,8 +1,10 @@
 import { submitToServer } from './api';
 import { updateUI } from './view';
 import { validatePlace } from './util';
+import { apiUrl } from './config';
 
 
+// Main function
 let init = async (event) => {
   console.log('DOM fully loaded and parsed');
   //Handle form submit event
@@ -26,7 +28,7 @@ let init = async (event) => {
 
     try {
 
-      await submitToServer({place,date,note});
+      await submitToServer(apiUrl,{place,date,note});
       await updateUI();
 
       clearTextInput();
@@ -38,13 +40,12 @@ let init = async (event) => {
   })
 }
 
-window.addEventListener('DOMContentLoaded', init);
-
-export { init };
-
 //Clears the input boxes-
 function clearTextInput(){
   document.querySelector('#place').value="";
   document.querySelector('#date').value="";
   document.querySelector('#note').value="";
 }
+
+
+export { init };
