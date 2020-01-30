@@ -35,36 +35,27 @@ app.post('/trip', async (req,res)=>{
     const {place,date,note}= req.body;
     //Fetch coordinates from GeoNames API
     const coord= await getDataFromGeoNames(process.env.GEONAMES_USERNAME,place);
+    //Fetch image from pixabay API
+    const image = await getImageFromPixabay(process.env.PIXABAY_API_KEY,place);
+    let weatherInfo={};
 
     if(coord){
         //Fetch weather from darksky API
-        let weatherInfo= await getDataFromDarkSky(process.env.DARK_SKY_API_KEY, coord.lat, coord.lng,date);
-
-        if(weatherInfo){
-            //Fetch image from pixabay API
-            const image = await getImageFromPixabay(process.env.PIXABAY_API_KEY,place);
-
-            travelData=[
-                {
-                    name:place,
-                    date:date,
-                    note:note,
-                    image:image,
-                    high:weatherInfo.high || "No data available",
-                    low:weatherInfo.low || "No data available",
-                    weather:weatherInfo.weather|| "No data available"
-                },
-                ...travelData];
-            res.send({success:true});
-        }else{
-            console.log("No weather info");
-            res.send({success:false,message:"Could not get the weather data"});
-        }
-
-    }else{
-        console.log("No cords...");
-        res.send({success:false, message:"Could not get the coordinated"});
+        weatherInfo= await getDataFromDarkSky(process.env.DARK_SKY_API_KEY, coord.lat, coord.lng,date);
     }
+
+    travelData=[
+        {
+            name:place,
+            date:date,
+            note:note,
+            image:image,
+            high:weatherInfo.high || "No data available",
+            low:weatherInfo.low || "No data available",
+            weather:weatherInfo.weather|| "No data available"
+        },
+        ...travelData];
+    res.send({success:true});
 })
 
 //POST route to delete an entry from the travel data
