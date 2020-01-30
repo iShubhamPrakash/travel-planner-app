@@ -11,16 +11,6 @@ let app = express()
 
 let travelData= [];
 
-let sampledata={
-    name:"Paris, 1",
-    date:"07-07-2020",
-    image:"https://pixabay.com/get/54e4d1434a54aa14f6da8c7dda79367a1c3ad8e355576c4870277bd7944cc651bf_1280.jpg",
-    note:"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Atque neque libero molestiae quod voluptas, alias ipsa ad dolorem soluta corrupti ratione magni quasi eum tenetur enim commodi ullam aperiam optio?",
-    high: "46",
-    low:"35",
-    weather:"Mostly cloudy throughout the day"
-};
-
 /* Middleware*/
 //Here we are configuring express to use body-parser as middle-ware.
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -43,10 +33,38 @@ app.get('/trip', (req,res)=>{
 //POST route to update travel data
 app.post('/trip', async (req,res)=>{
     const {place,date,note}= req.body;
+    //Fetch coordinates from GeoNames API
+    const coord= await getDataFromGeoNames(process.env.GEONAMES_USERNAME,place);
 
-    const image = await getImageFromPixabay(process.env.PIXABAY_API_KEY,place);
-    travelData=[{...sampledata,name:place,date:date,note:note,image:image},...travelData];
-    res.send({success:true});
+    if(coord){
+        //Fetch weather from darksky API
+        let weatherInfo= await getDataFromDarkSky(process.env.DARK_SKY_API_KEY, coord.lat, coord.lng,date);
+
+        if(weatherInfo){
+            //Fetch image from pixabay API
+            const image = await getImageFromPixabay(process.env.PIXABAY_API_KEY,place);
+
+            travelData=[
+                {
+                    name:place,
+                    date:date,
+                    note:note,
+                    image:image,
+                    high:weatherInfo.high,
+                    low:weatherInfo.low,
+                    weather:weatherInfo.weather
+                },
+                ...travelData];
+            res.send({success:true});
+        }else{
+            console.log("No weather info");
+            res.send({success:false,message:"Could not get the weather data"});
+        }
+
+    }else{
+        console.log("No cords...");
+        res.send({success:false, message:"Could not get the coordinated"});
+    }
 })
 
 //POST route to delete an entry from the travel data
@@ -70,23 +88,35 @@ const getImageFromPixabay= async (key,image)=>{
     });
 }
 
-const getDataFromDarkSky= async(key,lat,long,time="")=>{
-    const url= `https://api.darksky.net/forecast/${key}/${lat},${long},${time}`;
-    return await axios.get(url).then(res => {
-        return res.data.daily.data[0];
-    });
+const getDataFromDarkSky= async(key,lat,long,time)=>{
+    const url= `https://api.darksky.net/forecast/${key}/${lat},${long},${time}T00:00:00`;
+    try{
+        return await axios.get(url).then(res => {
+            return ({
+                high: res.data.daily.data[0].temperatureHigh,
+                low: res.data.daily.data[0].temperatureLow,
+                weather: res.data.daily.data[0].summary
+            });
+        });
+    }catch(e){
+        console.log(e);
+        return {}
+    }
 }
 
 const getDataFromGeoNames= async (username,city)=>{
-    const url=`http://api.geonames.org/postalCodeSearchJSON?${city}&maxRows=10&username=${username}`;
-    return axios.get(url).then(res => {
-        return res.data.postalCodes[0];
-    });
+    const url=`http://api.geonames.org/searchJSON?q=${city}&maxRows=1&username=${username}`;
+    try{
+        return await axios.get(url)
+                .then(res=>{
+                    return {
+                        lat:res.data.geonames[0].lat,
+                        lng:res.data.geonames[0].lng
+                    }
+                });
+    } catch(e){
+        console.log(e);
+    }
 }
-
-// app.get('/image',async (req,res)=>{
-//     let data= await getImageFromPixabay(process.env.PIXABAY_API_KEY,req.body.iimage);
-//     res.send(data);
-// })
 
 module.exports = app;

@@ -22,13 +22,22 @@
 
 # GET https://api.darksky.net/forecast/e32200291377f81b23312e8c40d3677e/25.47241,89.53291
 
+# GET https://api.darksky.net/forecast/e32200291377f81b23312e8c40d3677e/25.47241,89.53291,2020-08-23T00:00:00
+
+
+GET https://api.darksky.net/forecast/e32200291377f81b23312e8c40d3677e/25.59408,85.13563,2020-02-02T00:00:00
+
+
+
+# Response
+# High= daily.data[0].temperatureHigh
+# low= daily.data[0].temperatureLow
+# weather= daily.data[0].summary
 
 
 
 
-
-
-GET http://localhost:8000/trip HTTP/1.1
+# GET http://localhost:8000/trip HTTP/1.1
 
 
 ##post
